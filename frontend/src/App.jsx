@@ -6,23 +6,14 @@ function App() {
 
   const fetchQuote = async () => {
     try {
-      const response = await fetch("https://api.api-ninjas.com/v1/quotes", {
-        headers: {
-          'X-Api-Key': 'o6WNP7hQkMawGhJ4kG6V9w==TR2o5XlpSPYuVp15'
-        }
-      });
+      const response = await fetch("https://weather-backend-o983.onrender.com/api/quote");
       const data = await response.json();
-      if (Array.isArray(data) && data.length > 0) {
-        setQuote({
-          quote: data[0].quote,
-          author: data[0].author
-        });
-      } else {
-        setQuote({ quote: "No quote found.", author: "Unknown" });
-      }
+      setQuote({
+        quote: data.quote,
+        author: data.author
+      });
     } catch (error) {
       console.error("Error fetching quote:", error);
-      setQuote({ quote: "API request failed.", author: "Error" });
     }
   };
 
@@ -48,4 +39,4 @@ function App() {
   );
 }
 
-export default App; // ✅ This is essential!
+export default App;
