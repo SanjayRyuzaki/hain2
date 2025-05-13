@@ -6,7 +6,7 @@ function App() {
 
   const fetchQuote = async () => {
     try {
-      const response = await fetch("https://weather-backend-o983.onrender.com/api/quote");
+      const response = await fetch("https://hain2.onrender.com/api/quote");
       const data = await response.json();
       setQuote({
         quote: data.quote,
